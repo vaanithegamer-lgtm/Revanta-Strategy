@@ -1,0 +1,928 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neha Makhija - Sales Process & Team Consultant</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --black: #0a0a0a;
+        --dark-black: #000000;
+        --gold: #d4af37;
+        --dark-gold: #b8941f;
+        --light-gold: #f4e5c2;
+        --grey: #8a8a8a;
+        --light-grey: #1a1a1a;
+        --white: #ffffff;
+        --accent: #d4af37;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.6;
+        color: var(--white);
+        background: var(--black);
+        overflow-x: hidden;
+      }
+
+      /* Header */
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(10, 10, 10, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 20px rgba(212, 175, 55, 0.1);
+        z-index: 1000;
+        transition: all 0.3s ease;
+        border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+      }
+
+      nav {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1.5rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--gold);
+        letter-spacing: -0.5px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: var(--white);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+        font-size: 0.95rem;
+      }
+
+      .nav-links a:hover {
+        color: var(--gold);
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--gold);
+        cursor: pointer;
+      }
+
+      /* Hero Section */
+      .hero {
+        margin-top: 80px;
+        min-height: 90vh;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(
+          135deg,
+          var(--black) 0%,
+          #1a1a1a 50%,
+          var(--black) 100%
+        );
+        position: relative;
+        color: var(--white);
+        padding: 4rem 2rem;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+          circle at 20% 50%,
+          rgba(212, 175, 55, 0.1) 0%,
+          transparent 50%
+        );
+        pointer-events: none;
+      }
+
+      .hero-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-text h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        letter-spacing: -1px;
+      }
+
+      .hero-text .subtitle {
+        font-size: 1.3rem;
+        color: var(--gold);
+        margin-bottom: 2rem;
+        font-weight: 400;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      .hero-text p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 2.5rem;
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 1rem 2.5rem;
+        background: var(--gold);
+        color: var(--black);
+        text-decoration: none;
+        border-radius: 6px;
+        font-weight: 600;
+        transition: all 0.3s;
+        font-size: 1.05rem;
+        border: 2px solid var(--gold);
+      }
+
+      .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+        background: var(--dark-gold);
+        border-color: var(--dark-gold);
+      }
+
+      .hero-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .hero-image-placeholder {
+        width: 100%;
+        max-width: 400px;
+        aspect-ratio: 1;
+        background: linear-gradient(
+          135deg,
+          rgba(212, 175, 55, 0.1) 0%,
+          rgba(212, 175, 55, 0.05) 100%
+        );
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 4px solid var(--gold);
+        box-shadow: 0 0 50px rgba(212, 175, 55, 0.3);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .hero-image-placeholder img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      /* Section Styles */
+      section {
+        padding: 6rem 2rem;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .section-header h2 {
+        font-size: 2.5rem;
+        color: var(--gold);
+        margin-bottom: 1rem;
+        font-weight: 700;
+      }
+
+      .section-header p {
+        font-size: 1.2rem;
+        color: var(--grey);
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      /* About Section */
+      .about {
+        background: var(--light-grey);
+      }
+
+      .about-content {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      .about-stats {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .stat-item {
+        background: var(--black);
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        border: 1px solid rgba(212, 175, 55, 0.2);
+      }
+
+      .stat-number {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--gold);
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-label {
+        color: var(--grey);
+        font-size: 1.1rem;
+      }
+
+      .about-text p {
+        font-size: 1.1rem;
+        color: var(--grey);
+        margin-bottom: 1.5rem;
+        line-height: 1.8;
+      }
+
+      /* Services Section */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2.5rem;
+      }
+
+      .service-card {
+        background: var(--light-grey);
+        padding: 3rem 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        transition: all 0.3s;
+        border-top: 4px solid var(--gold);
+        border: 1px solid rgba(212, 175, 55, 0.2);
+      }
+
+      .service-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
+        border: 1px solid var(--gold);
+      }
+
+      .service-icon {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .service-card h3 {
+        font-size: 1.5rem;
+        color: var(--gold);
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      .service-card p {
+        color: var(--grey);
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+      }
+
+      .service-card ul {
+        list-style: none;
+        color: var(--grey);
+      }
+
+      .service-card li {
+        padding: 0.5rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+      }
+
+      .service-card li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--gold);
+        font-weight: 700;
+      }
+
+      /* How I Work Section */
+      .how-work {
+        background: var(--light-grey);
+      }
+
+      .work-steps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+      }
+
+      .step-card {
+        text-align: center;
+        padding: 2rem 1rem;
+      }
+
+      .step-number {
+        width: 60px;
+        height: 60px;
+        background: var(--gold);
+        color: var(--black);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 0 auto 1.5rem;
+      }
+
+      .step-card h3 {
+        font-size: 1.3rem;
+        color: var(--gold);
+        margin-bottom: 1rem;
+      }
+
+      .step-card p {
+        color: var(--grey);
+        line-height: 1.7;
+      }
+
+      /* Pain Points Section */
+      .pain-points-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+
+      .pain-card {
+        background: var(--light-grey);
+        padding: 2.5rem;
+        border-radius: 10px;
+        border-left: 4px solid var(--gold);
+        border: 1px solid rgba(212, 175, 55, 0.2);
+      }
+
+      .pain-card h3 {
+        font-size: 1.4rem;
+        color: var(--gold);
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .pain-icon {
+        font-size: 2rem;
+      }
+
+      .pain-card p {
+        color: var(--grey);
+        line-height: 1.8;
+      }
+
+      /* Contact Section */
+      .contact {
+        background: var(--black);
+        color: var(--white);
+        position: relative;
+      }
+
+      .contact::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+          circle at 80% 50%,
+          rgba(212, 175, 55, 0.05) 0%,
+          transparent 50%
+        );
+        pointer-events: none;
+      }
+
+      .contact .section-header h2,
+      .contact .section-header p {
+        color: var(--white);
+      }
+
+      .contact-methods {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+        margin-top: 3rem;
+      }
+
+      .contact-card {
+        background: var(--light-grey);
+        padding: 3rem;
+        border-radius: 12px;
+        text-align: center;
+        transition: all 0.3s;
+        border: 1px solid rgba(212, 175, 55, 0.2);
+        position: relative;
+        z-index: 1;
+      }
+
+      .contact-card:hover {
+        border: 1px solid var(--gold);
+        transform: translateY(-5px);
+        box-shadow: 0 10px 40px rgba(212, 175, 55, 0.2);
+      }
+
+      .contact-icon {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .contact-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .contact-card a {
+        color: var(--black);
+        text-decoration: none;
+        font-size: 1.2rem;
+        font-weight: 600;
+        display: inline-block;
+        padding: 1rem 2rem;
+        background: var(--gold);
+        border-radius: 6px;
+        margin-top: 1rem;
+        transition: all 0.3s;
+      }
+
+      .contact-card a:hover {
+        background: var(--dark-gold);
+        transform: scale(1.05);
+      }
+
+      /* Footer */
+      footer {
+        background: var(--dark-black);
+        color: rgba(255, 255, 255, 0.5);
+        text-align: center;
+        padding: 2rem;
+        border-top: 1px solid rgba(212, 175, 55, 0.1);
+      }
+
+      /* Mobile Responsiveness */
+      @media (max-width: 968px) {
+        .nav-links {
+          position: fixed;
+          top: 80px;
+          left: -100%;
+          flex-direction: column;
+          background: rgba(10, 10, 10, 0.98);
+          backdrop-filter: blur(10px);
+          width: 100%;
+          padding: 2rem;
+          box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
+          transition: left 0.3s;
+          border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .nav-links.active {
+          left: 0;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .hero-content {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        .hero-text h1 {
+          font-size: 2.5rem;
+        }
+
+        .hero-image {
+          order: -1;
+        }
+
+        .hero-image-placeholder {
+          max-width: 250px;
+        }
+
+        .about-content {
+          grid-template-columns: 1fr;
+        }
+
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .work-steps {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .pain-points-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-methods {
+          grid-template-columns: 1fr;
+        }
+
+        section {
+          padding: 4rem 1.5rem;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .hero-text h1 {
+          font-size: 2rem;
+        }
+
+        .hero-text .subtitle {
+          font-size: 1.1rem;
+        }
+
+        .section-header h2 {
+          font-size: 2rem;
+        }
+
+        .work-steps {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Smooth Scroll */
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <nav>
+        <div class="logo">Neha Makhija</div>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#how-work">How I Work</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Build a Sales Machine That Scales Without You</h1>
+          <p class="subtitle">Elite Sales Strategy Consultant</p>
+          <p>
+            I partner with ambitious founders to architect high-performance
+            sales systems—transforming unpredictable pipelines into consistent
+            revenue engines. No generic playbooks. Just proven strategies
+            tailored to your business, your market, and your goals.
+          </p>
+          <a href="#contact" class="cta-button">Schedule a Strategy Call</a>
+        </div>
+        <div class="hero-image">
+          <div class="hero-image-placeholder">
+            <img
+              src="neha-photo.jpg"
+              alt="Neha Makhija - Sales Strategy Consultant"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+      <div class="container">
+        <div class="section-header">
+          <h2>Why Founders Choose Me</h2>
+          <p>A decade of turning sales chaos into predictable growth</p>
+        </div>
+        <div class="about-content">
+          <div class="about-stats">
+            <div class="stat-item">
+              <div class="stat-number">10+</div>
+              <div class="stat-label">Years in Sales Leadership</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">50+</div>
+              <div class="stat-label">Teams Transformed</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">3x</div>
+              <div class="stat-label">Average Revenue Growth</div>
+            </div>
+          </div>
+          <div class="about-text">
+            <p>
+              I'm Neha Makhija, and for over 10 years, I've been the strategic
+              partner founders call when sales becomes their biggest bottleneck.
+              I've built sales organizations from the ground up, rescued
+              underperforming teams, and designed revenue systems that scale
+              beyond the founder.
+            </p>
+            <p>
+              My philosophy? Sales success isn't about motivation speeches or
+              generic tactics. It's about diagnosing what's actually broken,
+              rebuilding the foundation, and implementing systems that make
+              revenue predictable—not a prayer.
+            </p>
+            <p>
+              I work with founders who are done with roller-coaster revenue and
+              ready to build something sustainable. If you're tired of being
+              your own best salesperson and want a team that can close without
+              you, we should talk.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-header">
+          <h2>Strategic Engagements</h2>
+          <p>
+            From diagnosis to execution—tailored solutions that deliver results
+          </p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">🔍</div>
+            <h3>Sales Diagnostic</h3>
+            <p>
+              A comprehensive 360° audit that uncovers exactly what's costing
+              you deals. Get clarity on your bottlenecks and a roadmap to fix
+              them.
+            </p>
+            <ul>
+              <li>Complete pipeline & conversion analysis</li>
+              <li>Team skills & performance assessment</li>
+              <li>Process inefficiency identification</li>
+              <li>Strategic action plan with priorities</li>
+            </ul>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">⚙️</div>
+            <h3>Sales System Overhaul</h3>
+            <p>
+              Complete reconstruction of your sales infrastructure. We'll build
+              repeatable systems that turn your team into a high-performing
+              revenue machine.
+            </p>
+            <ul>
+              <li>Custom process design & documentation</li>
+              <li>CRM setup & optimization</li>
+              <li>Comprehensive sales playbook creation</li>
+              <li>Full team training & implementation</li>
+            </ul>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🎯</div>
+            <h3>Executive Advisory</h3>
+            <p>
+              Your ongoing strategic partner for scaling revenue. Get expert
+              guidance on-demand as you navigate growth, hiring, and market
+              expansion.
+            </p>
+            <ul>
+              <li>Bi-weekly strategy & optimization sessions</li>
+              <li>Real-time performance coaching</li>
+              <li>Strategic hiring & onboarding frameworks</li>
+              <li>Priority access for critical decisions</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How I Work Section -->
+    <section class="how-work" id="how-work">
+      <div class="container">
+        <div class="section-header">
+          <h2>My Methodology</h2>
+          <p>A battle-tested framework that turns diagnosis into revenue</p>
+        </div>
+        <div class="work-steps">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h3>Deep Discovery</h3>
+            <p>
+              Immersive analysis of your business model, revenue challenges, and
+              growth objectives. We identify the real problems—not just
+              symptoms.
+            </p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h3>Strategic Diagnosis</h3>
+            <p>
+              Data-driven assessment of your sales infrastructure, team
+              capabilities, and market positioning. We pinpoint exactly where
+              revenue is leaking.
+            </p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h3>Custom Blueprint</h3>
+            <p>
+              Tailored action plan designed for your specific business context.
+              Clear milestones, measurable outcomes, and realistic timelines.
+            </p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">4</div>
+            <h3>Implementation & Scale</h3>
+            <p>
+              Hands-on execution alongside your team. We build the systems,
+              train your people, and ensure adoption until results compound.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pain Points Section -->
+    <section class="pain-points">
+      <div class="container">
+        <div class="section-header">
+          <h2>The Revenue Roadblocks I Solve</h2>
+          <p>If any of these sound familiar, you're in the right place</p>
+        </div>
+        <div class="pain-points-grid">
+          <div class="pain-card">
+            <h3><span class="pain-icon">📉</span> Unpredictable Revenue</h3>
+            <p>
+              Your monthly numbers swing wildly. Great months are followed by
+              terrible ones, and you have no reliable way to forecast what's
+              next. It feels like you're always one bad month away from crisis.
+            </p>
+          </div>
+          <div class="pain-card">
+            <h3><span class="pain-icon">🎯</span> Disappearing Deals</h3>
+            <p>
+              Your pipeline looks healthy, but deals evaporate at the finish
+              line. Prospects ghost, negotiations drag, and your conversion
+              rates are embarrassingly low. You're generating interest but not
+              revenue.
+            </p>
+          </div>
+          <div class="pain-card">
+            <h3><span class="pain-icon">👥</span> Team Underperformance</h3>
+            <p>
+              You've hired smart people, but they're missing targets month after
+              month. You don't know if it's the people, the process, the
+              training, or the leads—and you're running out of patience and
+              budget.
+            </p>
+          </div>
+          <div class="pain-card">
+            <h3><span class="pain-icon">⏰</span> The Founder Bottleneck</h3>
+            <p>
+              Every significant deal requires your personal involvement. Your
+              team can't close without you in the room. You're trapped in sales
+              when you should be building the business, and it's not
+              sustainable.
+            </p>
+          </div>
+          <div class="pain-card">
+            <h3><span class="pain-icon">📊</span> Sales Chaos</h3>
+            <p>
+              Everyone sells differently. There's no documented process, no
+              playbook, and no consistency. Training new reps takes forever, and
+              you have no idea what actually works because nothing is
+              standardized.
+            </p>
+          </div>
+          <div class="pain-card">
+            <h3><span class="pain-icon">💰</span> The Growth Plateau</h3>
+            <p>
+              You've hit a wall. Adding more salespeople doesn't equal more
+              revenue. Your current systems can't scale, and you're not sure
+              what needs to change to break through to the next level.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2>Ready to Transform Your Sales?</h2>
+          <p>
+            Let's discuss how we can turn your sales challenges into competitive
+            advantages
+          </p>
+        </div>
+        <div class="contact-methods">
+          <div class="contact-card">
+            <div class="contact-icon">📱</div>
+            <h3>WhatsApp / Call</h3>
+            <a href="https://wa.me/919022998805" target="_blank"
+              >+91-9022998805</a
+            >
+          </div>
+          <div class="contact-card">
+            <div class="contact-icon">✉️</div>
+            <h3>Email</h3>
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=makhija.neha107@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              >makhija.neha107@gmail.com</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>
+        &copy; 2024 Neha Makhija. All rights reserved. | Sales Process & Team
+        Consulting
+      </p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      // Mobile Menu Toggle
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const navLinks = document.getElementById("navLinks");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Close mobile menu when clicking on a link
+      const links = document.querySelectorAll(".nav-links a");
+      links.forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("active");
+        });
+      });
+
+      // Header scroll effect
+      let lastScroll = 0;
+      const header = document.querySelector("header");
+
+      window.addEventListener("scroll", () => {
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll <= 0) {
+          header.style.boxShadow = "0 2px 20px rgba(212, 175, 55, 0.1)";
+        } else {
+          header.style.boxShadow = "0 4px 30px rgba(212, 175, 55, 0.2)";
+        }
+
+        lastScroll = currentScroll;
+      });
+    </script>
+  </body>
+</html>
